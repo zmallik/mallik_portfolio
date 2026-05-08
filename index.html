@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mallikarjun Gajji — Senior Backend Engineer</title>
+  <meta name="description" content="Senior Backend Engineer with 11 years building high-throughput distributed systems and SaaS platforms. Based in Bangalore, India." />
+  <meta property="og:title" content="Mallikarjun Gajji — Senior Backend Engineer" />
+  <meta property="og:description" content="Backend engineer specializing in distributed systems, platform engineering, and high-throughput pipelines." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Mallikarjun Gajji — Senior Backend Engineer" />
+  <meta name="twitter:description" content="Backend engineer specializing in distributed systems, platform engineering, and high-throughput pipelines." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#090909',
+            surface: '#111111',
+            'surface-2': '#1a1a1a',
+            accent: '#00d4aa',
+            'accent-dim': '#00a882',
+            'accent-muted': 'rgba(0,212,170,0.12)',
+            border: 'rgba(255,255,255,0.07)',
+            'text-primary': '#f1f5f9',
+            'text-secondary': '#94a3b8',
+            'text-muted': '#475569',
+          },
+          fontFamily: {
+            mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            blink: 'blink 1s step-end infinite',
+            'fade-up': 'fadeUp 0.6s ease forwards',
+            'count-up': 'countUp 2s ease-out forwards',
+          },
+          keyframes: {
+            blink: { '0%,100%': { opacity: 1 }, '50%': { opacity: 0 } },
+            fadeUp: { from: { opacity: 0, transform: 'translateY(24px)' }, to: { opacity: 1, transform: 'translateY(0)' } },
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: #090909; color: #f1f5f9; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #090909; }
+    ::-webkit-scrollbar-thumb { background: #00d4aa44; border-radius: 2px; }
+
+    .cursor::after {
+      content: '|';
+      color: #00d4aa;
+      animation: blink 1s step-end infinite;
+      margin-left: 2px;
+      font-weight: 300;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .grad-text {
+      background: linear-gradient(135deg, #00d4aa 0%, #6ee7b7 50%, #00d4aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glow-line {
+      background: linear-gradient(90deg, transparent, #00d4aa44, transparent);
+      height: 1px;
+    }
+
+    .card {
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(0,212,170,0.35);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(0,212,170,0.08);
+    }
+
+    .skill-tag {
+      background: rgba(0,212,170,0.08);
+      border: 1px solid rgba(0,212,170,0.18);
+      color: #6ee7b7;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .skill-tag:hover {
+      background: rgba(0,212,170,0.16);
+      border-color: rgba(0,212,170,0.4);
+    }
+
+    .timeline-dot {
+      width: 10px; height: 10px;
+      background: #00d4aa;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(0,212,170,0.2);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 4px; top: 18px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, #00d4aa44, transparent);
+    }
+
+    .nav-link {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: color 0.15s;
+      padding: 4px 0;
+    }
+    .nav-link:hover { color: #00d4aa; }
+
+    .impact-num {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #00d4aa;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background: transparent;
+      border: 1px solid #00d4aa;
+      color: #00d4aa;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: background 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      background: rgba(0,212,170,0.1);
+      box-shadow: 0 0 20px rgba(0,212,170,0.2);
+    }
+
+    .btn-icon {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+    }
+    .btn-icon:hover {
+      border-color: rgba(0,212,170,0.4);
+      color: #00d4aa;
+      background: rgba(0,212,170,0.06);
+    }
+
+    .project-card {
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      height: 100%;
+    }
+    .project-card:hover {
+      border-color: rgba(0,212,170,0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 50px rgba(0,212,170,0.09);
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .noise-bg::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    @media (max-width: 640px) {
+      .nav-desktop { display: none; }
+    }
+  </style>
+</head>
+<body class="noise-bg min-h-screen">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(9,9,9,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="font-mono text-sm text-accent font-medium tracking-wide">mg.dev</a>
+      <div class="nav-desktop flex items-center gap-8">
+        <a href="#about" class="nav-link">about</a>
+        <a href="#impact" class="nav-link">impact</a>
+        <a href="#skills" class="nav-link">skills</a>
+        <a href="#experience" class="nav-link">experience</a>
+        <a href="#projects" class="nav-link">projects</a>
+        <a href="#contact" class="nav-link">contact</a>
+      </div>
+      <a href="#contact" class="btn-primary text-xs py-2 px-4">hire me</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="min-h-screen flex items-center pt-20 pb-16 px-6">
+    <div class="max-w-5xl mx-auto w-full">
+      <div class="mb-6 fade-in-section" style="transition-delay:0.1s">
+        <span class="section-label">// hello, world</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-4 fade-in-section" style="transition-delay:0.2s">
+        Mallikarjun<br />
+        <span class="grad-text">Gajji</span>
+      </h1>
+
+      <div class="text-xl sm:text-2xl text-text-secondary font-light mb-6 fade-in-section" style="transition-delay:0.3s; font-family:'JetBrains Mono',monospace;">
+        <span>Senior Backend Engineer</span>
+        <span class="cursor"></span>
+      </div>
+
+      <p class="text-text-secondary text-lg max-w-2xl leading-relaxed mb-10 fade-in-section" style="transition-delay:0.4s">
+        Building high-throughput distributed systems and revenue-critical platforms that scale.
+        11 years turning complexity into reliable, observable infrastructure.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4 fade-in-section" style="transition-delay:0.5s">
+        <a href="mailto:g.mallik.dev@gmail.com" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          get in touch
+        </a>
+        <a href="https://github.com/zmallik" target="_blank" rel="noopener" class="btn-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/themallik" target="_blank" rel="noopener" class="btn-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="resume.pdf" download class="btn-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+      </div>
+
+      <!-- subtle grid lines -->
+      <div class="absolute right-0 top-20 w-80 h-80 pointer-events-none opacity-5" style="background: radial-gradient(circle at center, #00d4aa 0%, transparent 70%);"></div>
+    </div>
+  </section>
+
+  <div class="glow-line max-w-5xl mx-auto"></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in-section mb-3"><span class="section-label">// about me</span></div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-10 fade-in-section">Engineered for scale,<br /><span class="grad-text">obsessed with reliability.</span></h2>
+
+      <div class="grid md:grid-cols-5 gap-10">
+        <div class="md:col-span-3 fade-in-section">
+          <p class="text-text-secondary leading-relaxed text-lg mb-5">
+            I'm a backend engineer with 11 years of experience building the systems that businesses depend on.
+            My work lives at the intersection of distributed systems, platform engineering, and operational excellence —
+            I own a revenue-critical pipeline that processes 10,000+ regulated submissions every month without breaking a sweat.
+          </p>
+          <p class="text-text-secondary leading-relaxed text-lg mb-5">
+            I led a cross-team monolith-to-microservices decomposition, designed an org-wide PDF generation service
+            now used by multiple product teams, and drove a 95% reduction in critical production incidents
+            through systematic observability and resilience engineering.
+          </p>
+          <p class="text-text-secondary leading-relaxed text-lg">
+            Outside the day job, I mentor engineers, run design reviews, and think deeply about the trade-offs
+            that make or break distributed systems at scale. I'm based in Bangalore, India.
+          </p>
+        </div>
+        <div class="md:col-span-2 fade-in-section">
+          <div class="card p-6 space-y-4">
+            <div>
+              <div class="section-label mb-1">location</div>
+              <div class="text-text-primary">Bangalore, India</div>
+            </div>
+            <div>
+              <div class="section-label mb-1">education</div>
+              <div class="text-text-primary">B.Tech, IIT Guwahati</div>
+              <div class="text-text-secondary text-sm">Mathematics & Computing</div>
+            </div>
+            <div>
+              <div class="section-label mb-1">current role</div>
+              <div class="text-text-primary">Senior Software Engineer</div>
+              <div class="text-text-secondary text-sm">Tekion Corp · since Jan 2021</div>
+            </div>
+            <div>
+              <div class="section-label mb-1">reach me at</div>
+              <a href="mailto:g.mallik.dev@gmail.com" class="text-accent text-sm hover:underline font-mono">g.mallik.dev@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line max-w-5xl mx-auto"></div>
+
+  <!-- IMPACT NUMBERS -->
+  <section id="impact" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in-section mb-3"><span class="section-label">// impact by numbers</span></div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 fade-in-section">Measurable results,<br /><span class="grad-text">real production systems.</span></h2>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card p-6 text-center fade-in-section">
+          <div class="impact-num grad-text mb-2" data-target="11" data-suffix="+">0</div>
+          <div class="text-text-secondary text-sm leading-snug">years of engineering experience</div>
+        </div>
+        <div class="card p-6 text-center fade-in-section">
+          <div class="impact-num grad-text mb-2" data-target="95" data-suffix="%">0</div>
+          <div class="text-text-secondary text-sm leading-snug">reduction in critical production incidents</div>
+        </div>
+        <div class="card p-6 text-center fade-in-section">
+          <div class="impact-num grad-text mb-2" data-target="10" data-suffix="K+">0</div>
+          <div class="text-text-secondary text-sm leading-snug">regulated submissions processed monthly</div>
+        </div>
+        <div class="card p-6 text-center fade-in-section">
+          <div class="impact-num grad-text mb-2" data-target="80" data-suffix="%">0</div>
+          <div class="text-text-secondary text-sm leading-snug">automated test coverage achieved</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line max-w-5xl mx-auto"></div>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in-section mb-3"><span class="section-label">// technical skills</span></div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 fade-in-section">Tools of the<br /><span class="grad-text">trade.</span></h2>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="card p-6 fade-in-section">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">⌨️</span>
+            <div class="section-label">languages</div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Go</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Bash</span>
+          </div>
+        </div>
+
+        <div class="card p-6 fade-in-section">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">⚙️</span>
+            <div class="section-label">backend</div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Spring Boot</span>
+            <span class="skill-tag">gRPC</span>
+            <span class="skill-tag">REST</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">JUnit</span>
+            <span class="skill-tag">Mockito</span>
+          </div>
+        </div>
+
+        <div class="card p-6 fade-in-section">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🔗</span>
+            <div class="section-label">distributed systems</div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Elasticsearch</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">Event-driven</span>
+          </div>
+        </div>
+
+        <div class="card p-6 fade-in-section">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">☁️</span>
+            <div class="section-label">cloud & infra</div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">AWS Lambda</span>
+            <span class="skill-tag">EC2</span>
+            <span class="skill-tag">S3</span>
+            <span class="skill-tag">SQS</span>
+            <span class="skill-tag">GCP</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Jenkins</span>
+          </div>
+        </div>
+
+        <div class="card p-6 fade-in-section">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🗄️</span>
+            <div class="section-label">data stores</div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">DynamoDB</span>
+          </div>
+        </div>
+
+        <div class="card p-6 fade-in-section">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">📊</span>
+            <div class="section-label">observability</div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Structured logging</span>
+            <span class="skill-tag">Distributed tracing</span>
+            <span class="skill-tag">Metrics/alerting</span>
+            <span class="skill-tag">RCA</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line max-w-5xl mx-auto"></div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in-section mb-3"><span class="section-label">// work experience</span></div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 fade-in-section">Where I've<br /><span class="grad-text">shipped.</span></h2>
+
+      <div class="space-y-6">
+
+        <!-- Tekion Sr -->
+        <div class="card p-6 md:p-8 fade-in-section">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary">Senior Software Engineer</h3>
+              <div class="text-accent font-mono text-sm mt-1">Tekion Corp</div>
+            </div>
+            <div class="text-text-muted text-sm font-mono whitespace-nowrap">Jan 2021 — Present</div>
+          </div>
+          <div class="relative pl-6 space-y-4">
+            <div class="timeline-line"></div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Technical owner of the revenue-critical reporting platform — processes 10K+ regulated submissions per month with near-zero downtime, achieving a <strong class="text-text-primary">95% reduction in critical production incidents</strong> through systematic observability and resilience engineering.</p>
+            </div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Led a cross-team <strong class="text-text-primary">monolith-to-microservices decomposition</strong>, coordinating architecture decisions and phased migration strategies across multiple engineering teams without service disruptions.</p>
+            </div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Designed and shipped an <strong class="text-text-primary">org-wide PDF generation service</strong> (AWS Lambda + Typst + Kafka) now adopted by multiple product teams; mentors senior and mid-level engineers on distributed systems design.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tekion SWE -->
+        <div class="card p-6 md:p-8 fade-in-section">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary">Software Engineer</h3>
+              <div class="text-accent font-mono text-sm mt-1">Tekion Corp</div>
+            </div>
+            <div class="text-text-muted text-sm font-mono whitespace-nowrap">Oct 2019 — Dec 2020</div>
+          </div>
+          <div class="relative pl-6 space-y-4">
+            <div class="timeline-line"></div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Built the core reporting module with Excel export, parameterized query engine, and scheduling support, laying the foundation for the platform I later scaled to production.</p>
+            </div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Shipped the Release Notes and Knowledge Base platform, enabling product and support teams to manage versioned documentation at scale.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Honestbee -->
+        <div class="card p-6 md:p-8 fade-in-section">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary">Software Engineer</h3>
+              <div class="text-accent font-mono text-sm mt-1">Honestbee</div>
+            </div>
+            <div class="text-text-muted text-sm font-mono whitespace-nowrap">Jul 2018 — May 2019</div>
+          </div>
+          <div class="relative pl-6 space-y-4">
+            <div class="timeline-line"></div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Designed a <strong class="text-text-primary">payroll computation service</strong> that ingested real-time delivery telemetry streams, accurately computing variable compensation for a fleet of delivery partners.</p>
+            </div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Integrated <strong class="text-text-primary">Stripe and CyberSource payment gateways</strong>, enabling multi-currency transaction flows across multiple Southeast Asian markets.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Iamplus -->
+        <div class="card p-6 md:p-8 fade-in-section">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-6">
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary">Software Engineer</h3>
+              <div class="text-accent font-mono text-sm mt-1">Iamplus Electronics</div>
+            </div>
+            <div class="text-text-muted text-sm font-mono whitespace-nowrap">Sep 2015 — Jul 2018</div>
+          </div>
+          <div class="relative pl-6 space-y-4">
+            <div class="timeline-line"></div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Built voice-enabled conversational services on third-party APIs, delivering natural language interfaces on consumer hardware devices.</p>
+            </div>
+            <div class="flex gap-4">
+              <div class="timeline-dot"></div>
+              <p class="text-text-secondary leading-relaxed">Introduced caching layers that <strong class="text-text-primary">significantly reduced end-to-end latency</strong>, improving responsiveness of voice interaction loops.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line max-w-5xl mx-auto"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in-section mb-3"><span class="section-label">// technical highlights</span></div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 fade-in-section">Systems I'm<br /><span class="grad-text">proud of.</span></h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="project-card fade-in-section">
+          <div class="text-3xl mb-4">📋</div>
+          <h3 class="text-lg font-semibold text-text-primary mb-2">Revenue-Critical Reporting Platform</h3>
+          <p class="text-text-secondary text-sm leading-relaxed mb-5">
+            Technical owner of a high-stakes pipeline handling 10K+ regulated automotive dealer submissions per month.
+            Rebuilt observability from scratch, drove 95% incident reduction, and architected for idempotent retry-safe processing under peak load.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Spring Boot</span>
+          </div>
+          <div class="flex items-center gap-2 mt-auto">
+            <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+            <span class="text-xs text-text-muted font-mono">production · Tekion Corp</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-section">
+          <div class="text-3xl mb-4">🏗️</div>
+          <h3 class="text-lg font-semibold text-text-primary mb-2">Monolith-to-Microservices Migration</h3>
+          <p class="text-text-secondary text-sm leading-relaxed mb-5">
+            Led a multi-team architectural decomposition of a large monolith into bounded microservices — defining service contracts,
+            migration sequencing, and rollback strategies to achieve zero-downtime cutover across critical business domains.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">gRPC</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Kafka</span>
+          </div>
+          <div class="flex items-center gap-2 mt-auto">
+            <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+            <span class="text-xs text-text-muted font-mono">platform · Tekion Corp</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in-section">
+          <div class="text-3xl mb-4">🖨️</div>
+          <h3 class="text-lg font-semibold text-text-primary mb-2">Org-wide PDF Generation Service</h3>
+          <p class="text-text-secondary text-sm leading-relaxed mb-5">
+            Designed a serverless document generation service using AWS Lambda, Typst for typesetting,
+            and Kafka for async job dispatch. Adopted by multiple product teams as the standard internal platform for document generation.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="skill-tag">AWS Lambda</span>
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">Typst</span>
+            <span class="skill-tag">S3</span>
+          </div>
+          <div class="flex items-center gap-2 mt-auto">
+            <div class="w-2 h-2 rounded-full bg-accent animate-pulse"></div>
+            <span class="text-xs text-text-muted font-mono">platform · Tekion Corp</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line max-w-5xl mx-auto"></div>
+
+  <!-- EDUCATION -->
+  <section id="education" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in-section mb-3"><span class="section-label">// education</span></div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-14 fade-in-section">Where it all<br /><span class="grad-text">started.</span></h2>
+
+      <div class="card p-8 max-w-xl fade-in-section">
+        <div class="flex items-start gap-6">
+          <div class="text-4xl">🎓</div>
+          <div>
+            <h3 class="text-xl font-semibold text-text-primary">B.Tech — Mathematics & Computing</h3>
+            <div class="text-accent font-mono text-sm mt-1 mb-3">Indian Institute of Technology, Guwahati</div>
+            <div class="text-text-muted text-sm font-mono">2011 – 2015</div>
+            <p class="text-text-secondary text-sm mt-4 leading-relaxed">
+              A rigorous foundation in computational mathematics, algorithms, and theoretical computer science
+              from one of India's premier technical institutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-line max-w-5xl mx-auto"></div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="fade-in-section mb-3"><span class="section-label">// contact</span></div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-6 fade-in-section">Let's build<br /><span class="grad-text">something.</span></h2>
+      <p class="text-text-secondary text-lg max-w-xl mb-12 fade-in-section leading-relaxed">
+        Open to senior backend / distributed systems roles, consulting, and interesting engineering conversations.
+        Reach out via email or connect on LinkedIn.
+      </p>
+
+      <div class="grid sm:grid-cols-3 gap-4 max-w-2xl fade-in-section">
+        <a href="mailto:g.mallik.dev@gmail.com" class="card p-5 flex flex-col items-start gap-3 hover:no-underline group">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00d4aa" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <div>
+            <div class="text-text-primary text-sm font-medium mb-0.5">Email</div>
+            <div class="text-text-muted text-xs font-mono">g.mallik.dev@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://linkedin.com/in/themallik" target="_blank" rel="noopener" class="card p-5 flex flex-col items-start gap-3 hover:no-underline group">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#00d4aa"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <div>
+            <div class="text-text-primary text-sm font-medium mb-0.5">LinkedIn</div>
+            <div class="text-text-muted text-xs font-mono">themallik</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/zmallik" target="_blank" rel="noopener" class="card p-5 flex flex-col items-start gap-3 hover:no-underline group">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#00d4aa"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <div>
+            <div class="text-text-primary text-sm font-medium mb-0.5">GitHub</div>
+            <div class="text-text-muted text-xs font-mono">zmallik</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t py-8 px-6 text-center" style="border-color: rgba(255,255,255,0.06)">
+    <p class="text-text-muted text-sm font-mono">
+      © 2026 Mallikarjun Gajji · Built with care ·
+      <span class="text-accent">mg.dev</span>
+    </p>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in-section
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+    // Animated counters
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const current = Math.round(eased * target);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+    // Initial visibility for above-the-fold elements
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-in-section').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
